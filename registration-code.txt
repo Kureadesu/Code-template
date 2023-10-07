@@ -1,0 +1,33 @@
+//paste this under the 'signup' button:
+
+String usern = user.getText();
+        String emailadd = email.getText();
+        String passw = String.valueOf(pass.getPassword());
+        String confirmPass = String.valueOf(jPasswordField2.getPassword());
+        
+        Login1 nextFrame = new Login1();
+        
+        if (usern.isEmpty() || emailadd.isEmpty() || passw.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please fill out all fiels.", "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            try{
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/table1", "root", "$4Y my n4m3");
+                pst = con.prepareStatement("INSERT INTO `testdb` (`username`,`email`,`password`) VALUES (?,?,?)");
+                
+                pst.setString(1, usern);
+                pst.setString(2, emailadd);
+                pst.setString(3, passw);
+                
+                int row = pst.executeUpdate();
+                if(row == 1){
+                    JOptionPane.showMessageDialog(null, "Registration successful.");
+                    con.close();
+                    this.dispose();
+                    nextFrame.show();
+                }
+                
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this, e);
+            }
+        }
