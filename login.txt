@@ -1,0 +1,23 @@
+//paste code into 'login' button:
+
+BankingSystem nextFrame = new BankingSystem();
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/table1", "root", "$4Y my n4m3");
+            String sql = "Select * from testdb where username=? and password=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, jTextField1.getText());
+            pst.setString(2, String.valueOf(jPasswordField1.getPassword()));
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+                JOptionPane.showMessageDialog(null, "Login successful!");
+                nextFrame.show();
+                this.dispose();
+                con.close();
+            }else {
+                JOptionPane.showMessageDialog(null, "username / password do not match.");
+                jTextField1.setText("");
+                jPasswordField1.setText("");
+            }
