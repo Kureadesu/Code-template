@@ -1,0 +1,7 @@
+//paste code into 'showpassword' checkbox:
+
+if(jCheckBox1.isSelected()){
+            jPasswordField1.setEchoChar((char)0);
+        }else{
+            jPasswordField1.setEchoChar('\u25cf');
+        }
