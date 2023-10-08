@@ -1,0 +1,16 @@
+
+
+// insert into 'view transaction history' button
+if(jComboBox1.getSelectedItem()=="Withdraw"){
+                    //insert tablemodel code here
+                    tbModel.addRow(withdrawData);
+                    jTextField3.setText(witAmount);
+                    jTextField4.setText(Date);
+                }else if (jComboBox1.getSelectedItem()=="Deposit"){
+                    //insert table model code here
+                    tbModel.addRow(depositData);
+                    jTextField3.setText(depAmount);
+                    jTextField4.setText(Date);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Please check your details and try again.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
