@@ -1,4 +1,22 @@
+// import the following:
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
+// insert into 'search' button
+String un = jTextField1.getText();
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/table1", "root", "$4Y my n4m3");
+            Statement pst = con.createStatement();
+            String sql = "SELECT * FROM testdb WHERE username='"+un+"'";
+            ResultSet rs = pst.executeQuery(sql);
+            while(rs.next()){
+                jTextField2.setText(rs.getString("bal"));
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Check your details and try again.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
 
 // insert into 'view transaction history' button
 if(jComboBox1.getSelectedItem()=="Withdraw"){
