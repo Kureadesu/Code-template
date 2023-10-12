@@ -29,16 +29,40 @@ String un = jTextField1.getText();
         }
 
 // insert into 'view transaction history' button
-if(jComboBox1.getSelectedItem()=="Withdraw"){
+String un = jTextField1.getText();
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/table1", "root", "$4Y my n4m3");
+            Statement pst = con.createStatement();
+            String sql = "SELECT * FROM testdb WHERE username='"+un+"'";
+            ResultSet rs = pst.executeQuery(sql);
+            
+            while(rs.next()){
+                String transType = rs.getString("transaction_type");
+                String dateDep = rs.getString("date_deposit");
+                String dateWit = rs.getString("date_withdraw");
+                String depAmount = rs.getString("deposit_amount");
+                String witAmount = rs.getString("withdraw_amount");
+                
+                String[] depositData = {transType,depAmount,dateDep};
+                String[] withdrawData = {transType,witAmount,dateWit};
+                
+                DefaultTableModel tbModel = (DefaultTableModel)jTable1.getModel();
+                
+                if(jComboBox1.getSelectedItem()=="Withdraw"){
                     //insert tablemodel code here
                     tbModel.addRow(withdrawData);
                     jTextField3.setText(witAmount);
-                    jTextField4.setText(Date);
+                    jTextField4.setText(dateWit);
                 }else if (jComboBox1.getSelectedItem()=="Deposit"){
                     //insert table model code here
                     tbModel.addRow(depositData);
                     jTextField3.setText(depAmount);
-                    jTextField4.setText(Date);
+                    jTextField4.setText(dateDep);
                 }else{
                     JOptionPane.showMessageDialog(null, "Please check your details and try again.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e, "Error", JOptionPane.ERROR_MESSAGE);
+        }
