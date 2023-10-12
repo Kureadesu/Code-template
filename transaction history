@@ -1,3 +1,13 @@
+// try-catch:
+try{
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/table1", "root", "123456789");
+        Statement pst = con.createStatement();   
+        String sql = ""; // kung anong query ang ilalagay mo sa loob ng quote marks
+}catch(Exception e){
+        JOptionPane.showMessageDialog();
+}
+
 // import the following:
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -7,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 String un = jTextField1.getText();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/table1", "root", "$4Y my n4m3");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/table1", "root", "123456789");
             Statement pst = con.createStatement();
             String sql = "SELECT * FROM testdb WHERE username='"+un+"'";
             ResultSet rs = pst.executeQuery(sql);
