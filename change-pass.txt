@@ -1,0 +1,29 @@
+//paste code into 'save password' button:
+String newPass = String.valueOf(jPasswordField2.getPassword());
+        String confirmPass = String.valueOf(jPasswordField3.getPassword());
+        String oldPass = String.valueOf(jPasswordField1.getPassword());
+        
+        String username = jTextField1.getText();
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/table1", "root", "$4Y my n4m3");
+            Statement pst = con.createStatement();
+            ResultSet rs = pst.executeQuery("SELECT * FROM testdb WHERE username='"+username+"' and password='"+oldPass+"'");
+            
+            if(rs.next()){
+                if(confirmPass.equals(newPass)){
+                    JOptionPane.showMessageDialog(null, "Successfully changed password.");
+                    pst.executeUpdate("UPDATE `testdb` SET `password` = '"+newPass+"' WHERE username='"+username+"'");    
+                    jTextField1.setText("");
+                    jPasswordField1.setText("");
+                    jPasswordField2.setText("");
+                    jPasswordField3.setText("");
+                }else{
+                    
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Please check your details and try again.", "Error", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
