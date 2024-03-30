@@ -1,0 +1,21 @@
+.nav-side:hover
+{
+    background-color: rgba(128, 128, 128, 0.253);
+    transition: 0.3s;
+    border-radius: 20px;
+}
+.trend:hover
+{
+    background-color: rgba(128, 128, 128, 0.253);
+    transition: 0.3s;
+}
+.posts:hover
+{
+    background-color: rgba(128, 128, 128, 0.144);
+    transition: 0.3s;
+}
+cite a
+{
+    text-decoration: none;
+    color: blue;
+}

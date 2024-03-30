@@ -1,0 +1,49 @@
+body
+{
+    margin: 0;
+    padding: 0;
+}
+.topbar
+{
+    display: flex;
+    padding: 10px;
+}
+p.Title
+{
+    padding-left: 10px;
+}
+#philippines
+{
+    font-family: 'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+    color: gray;
+    padding-left: 3px;
+}
+#yt-search input[type=text]
+{
+    flex-grow: 1;
+    
+}
+a
+{
+    color: rgb(59, 59, 59);
+    text-decoration: none;
+}
+a::selection
+{
+    color: black;
+}
+.channel-txt
+{
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+video
+{
+    border-radius: 15px;
+}
+cite a
+{
+    text-decoration: none;
+    color: blue;
+}

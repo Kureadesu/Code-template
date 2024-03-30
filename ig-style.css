@@ -1,0 +1,45 @@
+div#home:hover
+{
+    background-color: rgb(80, 80, 80);
+    border-radius: 10px;
+}
+div#search:hover
+{
+    background-color: rgb(80, 80, 80);
+    border-radius: 10px;
+}
+div#explore:hover
+{
+    background-color: rgb(80, 80, 80);
+    border-radius: 10px;
+}
+div#reels:hover
+{
+    background-color: rgb(80, 80, 80);
+    border-radius: 10px;
+}
+div#messages:hover
+{
+    background-color: rgb(80, 80, 80);
+    border-radius: 10px;
+}
+div#notif:hover
+{
+    background-color: rgb(80, 80, 80);
+    border-radius: 10px;
+}
+div#create:hover
+{
+    background-color: rgb(80, 80, 80);
+    border-radius: 10px;
+}
+div#profile:hover
+{
+    background-color: rgb(80, 80, 80);
+    border-radius: 10px;
+}
+cite a
+{
+    text-decoration: none;
+    color: blue;
+}

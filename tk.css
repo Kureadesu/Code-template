@@ -1,0 +1,24 @@
+input::placeholder
+{
+    color: white;
+}
+input
+{
+    background: transparent;
+    border: none;
+}
+form button
+{
+    background: transparent;
+    border: none;
+}
+.sidebar-tk:hover
+{
+    transition: 0.3s;
+    background-color: rgba(102, 102, 102, 0.548);
+}
+cite a
+{
+    text-decoration: none;
+    color: blue;
+}

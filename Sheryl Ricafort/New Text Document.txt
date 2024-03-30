@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Character References</title>
+</head>
+<body style="font-family:Arial;background-color:lightbrown;">
+	<h1>Character References</h1>
+	<h2>Bien Rafael Claire J. Balaba</h2>
+	<p>QA analyst, FIS Global Solutions</p>
+
+</body>
+</html>
